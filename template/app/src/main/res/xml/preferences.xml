@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:robobunny="http://robobunny.com">
+
+    <PreferenceCategory android:title="@string/basic" android:key="category_basic">
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="hide_in_recents"
+            android:title="@string/hide_in_recents" />
+
+    </PreferenceCategory>
+
+
+    <PreferenceCategory android:title="@string/about"/>
+
+    <Preference
+        android:key="app_version"
+        android:persistent="false"
+        android:title="@string/app_name">
+        <intent android:action="android.intent.action.VIEW" android:data="market://details?id={{packageId}}" />
+    </Preference>
+
+</PreferenceScreen>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Android App</string>
+    <string name="tip">App tip.</string>
+    <string name="setting">Setting</string>
+    <string name="basic">Basic</string>
+    <string name="about">About</string>
+    <string name="hide_in_recents">Hide in Android recent tasks</string>
+</resources>

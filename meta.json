@@ -1,0 +1,22 @@
+{
+  "prompts": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "label": "Project name"
+    },    
+    "packageId": {
+      "type": "string",
+      "required": true,
+      "label": "App package ID",
+      "default": "me.i38.app"
+    },
+    "key": {
+      "type": "string",
+      "required": true,
+      "label": "Release keystore file",
+      "default": "xxx"
+    }
+  },
+  "completeMessage": "To get started,\nrefactor java package name, then:\n\n  cd {{destDirName}}\n  build release"
+}
