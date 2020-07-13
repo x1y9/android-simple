@@ -1,17 +1,9 @@
-package me.i38.liquid;
+package com.x1y9.app;
 
-import android.accessibilityservice.AccessibilityService;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
-import android.app.Instrumentation;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.provider.Settings;
-import android.view.KeyEvent;
-import android.view.Surface;
-import android.view.WindowManager;
-import android.view.inputmethod.BaseInputConnection;
 
 import org.json.JSONArray;
 import org.json.JSONException;

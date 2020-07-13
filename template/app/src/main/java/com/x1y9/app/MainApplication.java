@@ -1,9 +1,7 @@
-package me.i38.liquid;
+package com.x1y9.app;
 
 import android.app.Application;
-import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.text.TextUtils;
 
 import com.squareup.leakcanary.LeakCanary;
 

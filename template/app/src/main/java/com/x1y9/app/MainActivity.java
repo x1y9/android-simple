@@ -1,21 +1,13 @@
-package me.i38.liquid;
+package com.x1y9.app;
 
 import android.app.Activity;
-import android.app.ActivityManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Switch;
-import android.widget.Toast;
-
-import java.util.List;
 
 public class MainActivity extends Activity {
 

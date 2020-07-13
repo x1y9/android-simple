@@ -1,13 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 28
     buildToolsVersion '26.0.2'
+    //flavorDimensions可以将Flavors按维度组成多个编译选项，缺省只需要一个
+    flavorDimensions "default"
     defaultConfig {
         applicationId "{{packageId}}"
         minSdkVersion 19
-        targetSdkVersion 26
-        versionCode 1
+        targetSdkVersion 28
+        versionCode 10000
         versionName "1.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -19,6 +21,20 @@ android {
             keyPassword "{{key}}key"
         }
     }
+
+//    使用resConfig缩减app尺寸，因为andriod studio不接受resConfigs，只能用变通的方法为release版本添加resConfigs
+    applicationVariants.all { variant ->
+      if (variant.buildType.name == "release") {
+        variant.mergedFlavor.resourceConfigurations.clear()
+        variant.mergedFlavor.resourceConfigurations.add("xhdpi")
+      }
+    }    
+    productFlavors
+    {
+        std {
+        }
+    }
+
     buildTypes {
         release {
             signingConfig signingConfigs.release
@@ -27,8 +43,6 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-    }
-    productFlavors {
     }
 
 }

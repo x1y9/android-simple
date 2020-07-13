@@ -9,7 +9,7 @@
       "type": "string",
       "required": true,
       "label": "App package ID",
-      "default": "me.i38.app"
+      "default": "com.x1y9.app"
     },
     "key": {
       "type": "string",

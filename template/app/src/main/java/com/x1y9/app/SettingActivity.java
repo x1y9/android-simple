@@ -1,19 +1,11 @@
-package me.i38.liquid;
+package com.x1y9.app;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
-import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
-import android.view.Menu;
-import android.view.MenuItem;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 public class SettingActivity extends Activity {
 
