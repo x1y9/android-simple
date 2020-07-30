@@ -1,4 +1,4 @@
-package com.x1y9.app;
+package com.x1y9.app.util;
 
 import android.app.ActivityManager;
 import android.app.AlertDialog;
@@ -19,7 +19,7 @@ import java.util.Map;
  * Created by x1y9
  */
 
-public class Util {
+public class BaseUtil {
 
         public static void hideInRecents(Context context, boolean hide) {
         ActivityManager am = (ActivityManager)context.getSystemService(Context.ACTIVITY_SERVICE);
@@ -32,7 +32,7 @@ public class Util {
         }
     }
 
-    public static void msgBox(Context context, int title) {
+    public static void msgBox(Context context, String title) {
         new AlertDialog.Builder(context).setMessage(title)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -43,7 +43,7 @@ public class Util {
     public static Map<String, Object> jsonToMap(String json, Map<String, Object> defaultValue) {
         try {
             return toMap(new JSONObject(json));
-        } catch (JSONException e) {
+        } catch (Exception e) {
             return defaultValue;
         }
     }

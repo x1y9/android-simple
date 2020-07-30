@@ -1,4 +1,4 @@
-package com.x1y9.app;
+package com.x1y9.app.comps;
 
 import android.content.Context;
 import android.content.res.TypedArray;

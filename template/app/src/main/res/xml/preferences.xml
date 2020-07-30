@@ -3,10 +3,7 @@
 
     <PreferenceCategory android:title="@string/basic" android:key="category_basic">
 
-        <SwitchPreference
-            android:defaultValue="false"
-            android:key="hide_in_recents"
-            android:title="@string/hide_in_recents" />
+
 
     </PreferenceCategory>
 

@@ -41,13 +41,11 @@ public class SettingActivity extends Activity {
             addPreferencesFromResource(R.xml.preferences);
             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
             findPreference("app_version").setSummary(BuildConfig.VERSION_NAME);
-            findPreference("hide_in_recents").setOnPreferenceChangeListener(this);
         }
 
 
         @Override
         public boolean onPreferenceChange(Preference preference, Object newValue) {
-            Util.hideInRecents(getActivity(), (Boolean)newValue);
             return true;
         }
     }
