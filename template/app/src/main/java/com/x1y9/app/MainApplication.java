@@ -5,8 +5,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import com.squareup.leakcanary.LeakCanary;
-
 public class MainApplication extends Application {
     private static MainApplication mContext;
     private static SharedPreferences sharedPref;
@@ -27,12 +25,7 @@ public class MainApplication extends Application {
     public void onCreate() {
         super.onCreate();
         mContext = this;
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            // This process is dedicated to LeakCanary for heap analysis.
-            // You should not init your app in this process.
-            return;
-        }
-        LeakCanary.install(this);
+
         // Normal app init code...
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
         sharedPref = PreferenceManager.getDefaultSharedPreferences(this);

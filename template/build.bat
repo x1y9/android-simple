@@ -7,10 +7,11 @@
 @if  "%1"=="clean" goto do_clean
 @if  "%1"=="version" goto do_version
 
-
+@for /f %%i in ('grep -oP "productFlavors" app\build.gradle') do @set FLAVORS=%%i
 @set FLAVOR=%2
-@echo check flavor:%2
-@if "%2"=="" set FLAVOR=std
+@echo check %FLAVORS%... flavor:%2
+@if NOT "%FLAVORS%"=="" if "%2"=="" set FLAVOR=std
+@if "%FLAVORS%"=="" if NOT "%2"=="" set FLAVOR=
 
 @if  "%1"=="debug" goto do_debug
 @if  "%1"=="release" goto do_release
@@ -28,12 +29,16 @@
 
 :do_debug
 call gradlew assemble%FLAVOR%Debug
-@IF "%ERRORLEVEL%"=="0" adb install -r app\build\outputs\apk\%FLAVOR%\debug\app-%FLAVOR%-debug.apk
+@IF %ERRORLEVEL% NEQ 0 goto error_end
+@adb install -r app\build\outputs\apk\%FLAVOR%\debug\app-%FLAVOR%-debug.apk
+@call toast debug-build
 @goto end
 
 :do_release
 call gradlew assemble%FLAVOR%Release
-@IF "%ERRORLEVEL%"=="0" adb install -r app\build\outputs\apk\%FLAVOR%\release\app-%FLAVOR%-release.apk
+@IF %ERRORLEVEL% NEQ 0 goto error_end
+@adb install -r app\build\outputs\apk\%FLAVOR%\release\app-%FLAVOR%-release.apk
+@call toast release-build
 @goto end
 
 :do_publish
@@ -51,12 +56,14 @@ copy app\build\outputs\apk\app-release.apk %PACKAGE%-%VERSION%-%HASH%.apk
 ) else (
 copy app\build\outputs\apk\%FLAVOR%\release\app-%FLAVOR%-release.apk %PACKAGE%-%VERSION%-%HASH%-%FLAVOR%.apk
 )
+@call toast publish-build
 @goto end
 
 :do_picture
 for /f "delims=" %%i in ('grep -oP """app_name"">\K([a-zA-Z 0-9.]+)" app\src\main\res\values\strings.xml') do set APPNAME=%%i
 convert app\src\main\res\drawable-xhdpi\icon.png -resize 512x publish\icon512.png
 convert app\src\main\res\drawable-xhdpi\icon.png -resize 114x publish\icon114.png
+@REM convert original.jpg -crop 640x620+0+0 cropped.jpg
 convert -size 1024x500  radial-gradient:#8c8ca4-#232050 ~bg.png
 convert publish\icon114.png -background none -pointsize 36 -size 480x -fill "#e7e7e7" -gravity center caption:"%APPNAME%" -append ~slogan.png
 composite -gravity center ~slogan.png ~bg.png publish\feature.jpg
@@ -79,6 +86,7 @@ sed -i -E "/versionCode/s/\./0/g" app\build.gradle
 @goto end
 
 :error_end
+@call toast build-fail
 @echo Oops... Something wrong!
 @ver /ERROR >NUL 2>&1
 
