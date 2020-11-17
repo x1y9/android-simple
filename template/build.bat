@@ -7,11 +7,10 @@
 @if  "%1"=="clean" goto do_clean
 @if  "%1"=="version" goto do_version
 
-@for /f %%i in ('grep -oP "productFlavors" app\build.gradle') do @set FLAVORS=%%i
+
 @set FLAVOR=%2
-@echo check %FLAVORS%... flavor:%2
-@if NOT "%FLAVORS%"=="" if "%2"=="" set FLAVOR=std
-@if "%FLAVORS%"=="" if NOT "%2"=="" set FLAVOR=
+@echo check flavor:%2
+@if "%2"=="" set FLAVOR=std
 
 @if  "%1"=="debug" goto do_debug
 @if  "%1"=="release" goto do_release

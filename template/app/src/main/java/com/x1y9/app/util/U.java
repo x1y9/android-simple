@@ -125,20 +125,7 @@ public class U {
         return join(map, ":", "\n");
     }
 
-    public static <T> String join(String split, String... keys) {
-        StringBuilder sb = new StringBuilder();
-        boolean first = true;
-        for (String key : keys) {
-            if (key != null) {
-                if (!first) {
-                    sb.append(split);
-                }
-                sb.append(key);
-                first = false;
-            }
-        }
-        return isEmpty(sb.toString()) ? null : sb.toString();
-    }
+    
 
     public static <T> String join(Map<String, T> map, String kv, String vv) {
         if (map != null) {

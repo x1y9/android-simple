@@ -5,8 +5,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-public class MainApplication extends Application {
-    private static MainApplication mContext;
+public class App extends Application {
+    private static App mContext;
     private static SharedPreferences sharedPref;
 
     public static SharedPreferences getPref() {
