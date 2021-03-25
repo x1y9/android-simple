@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- 如果没有parent，可能每个设备会不一致，取决于设备的default，
+    如果想要actionBar就Theme.Material.Light.DarkActionBar
     如果是watch，parent建议改成Theme.Material.NoActionBar.Fullscreen -->
     <style name="AppTheme" parent="@android:style/Theme.Material.Light.DarkActionBar">
-        <item name="android:colorPrimary">#9284BD</item>
-        <item name="android:colorPrimaryDark">#9284BD</item>
+        <item name="android:colorPrimary">@color/primary</item>
+        <item name="android:colorPrimaryDark">@color/primary</item>
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:textColorPrimary">@color/text</item>
+        <item name="android:textColorSecondary">@color/text2</item>
         <!-- 如果是watch，建议背景全黑 -->
         <!-- <item name="android:windowBackground">@android:color/black</item> -->
     </style>

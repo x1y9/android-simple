@@ -21,8 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <!--不要定义parentActivityName，这个会导致up按钮重启上一个activity -->
-        <activity android:name=".SettingActivity" />
+        <activity android:name=".FaqActivity" />
 
     </application>
 

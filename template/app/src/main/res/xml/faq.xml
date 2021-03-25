@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:robobunny="http://robobunny.com">
+
+    <PreferenceCategory android:title="@string/faq">
+
+        <com.x1y9.app.comps.MsgPreference
+            android:title="@string/how_work"
+            tip="xxx" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/other_apps" android:key="faq_app">
+
+        <com.x1y9.app.comps.MsgPreference
+            android:key="faq_app_anki"
+            android:title="anki"
+            android:summary="anki_tip"
+            url="market://details?id=me.i38.anki"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/acknowledgement">
+        <com.x1y9.app.comps.MsgPreference
+            android:title="xxx"
+            android:summary="yyy" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

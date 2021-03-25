@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">Android App</string>
-    <string name="tip">App tip.</string>
-    <string name="setting">Setting</string>
+    <string name="app_switch">App switch</string>
+    <string name="help_ack">Help</string>
+    <string name="faq">FAQ</string>
+    <string name="how_work">How does this app work?</string>
+    <string name="other_apps">My other apps</string>
+    <string name="acknowledgement">acknowledgement</string>
     <string name="basic">Basic</string>
     <string name="about">About</string>
 </resources>
