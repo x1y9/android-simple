@@ -81,6 +81,7 @@ sed -i -E "s/versionName ""(.*?)""/versionName ""%2""/" app\build.gradle
 sed -i -E "s/versionCode ([0-9.]+)/versionCode %2/" app\build.gradle
 sed -i -E "/versionCode/s/\.([0-9][0-9])/\1/g" app\build.gradle
 sed -i -E "/versionCode/s/\./0/g" app\build.gradle
+git commit -m "%2" -a
 )
 @goto end
 
